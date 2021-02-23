@@ -7,15 +7,16 @@ export const initialState = {
     members: [ `Charlie Zo`, `Ming Ping`, `Jing Peng`]
 }
 
-export const membersReducer = (state, action)=>{
+export const membersReducer = (state = initialState, action)=>{
 
-    console.log(members)
     switch(action.type){
         case ADD_MEMBER:
-            return{...state, sate: action.payload}
+            return{...state, members: [...state.members, action.payload]}
         case RMV_MEMBER:
-            return {...state, state: action.payload}
-
+            return {...state, members: [
+                ...state.members.slice(0, action.payload),
+                ...state.members.slice(action.payload + 1)
+            ]}
         default:
             return state;
     }

@@ -1,7 +1,10 @@
 import React, { useState, useReducer } from 'react'
 import { connect } from 'react-redux';
-//
+//reducer
 import { titleReducer, initialState } from '../reducers/titleReducer';
+//img
+import edit from '../img/icons/edit.svg'
+
 
 function TeamName() {
     // const [team, setTeam] = useState('Team Name')
@@ -22,7 +25,10 @@ function TeamName() {
             {!state.editing?
             <>
                 {/* Tell Reducer to toggle editing attribute */}
-                <h1 onClick = {()=>dispatch({type: "TOGGLE_EDIT"})}>{state.title}</h1>
+                <h1 onClick = {()=>dispatch({type: "TOGGLE_EDIT"})}>{state.title}
+                <img className = 'edit-icon' src={edit} alt=""/>
+                </h1>
+                
             </>
             :
             <>

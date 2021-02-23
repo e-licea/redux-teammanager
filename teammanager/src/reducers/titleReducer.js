@@ -1,11 +1,11 @@
 
 export const initialState = {
-    title: 'This is from the reducer.',
+    title: 'Edit Your Team Name',
     editing: false
 }
 
 
-export const titleReducer = (state, action)=>{
+export const titleReducer = (state=initialState, action)=>{
 
     switch(action.type){
         case "UPDATE_TITLE":
