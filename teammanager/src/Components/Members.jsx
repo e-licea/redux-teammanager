@@ -1,5 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import { connect } from 'react-redux';
+//components
+import MembersCard from './MembersCard'
 //reducers
 import { membersReducer, initialState, ADD_MEMBER, RMV_MEMBER} from '../reducers/membersReducer';
 //img
@@ -17,9 +19,21 @@ function Members() {
     
     return (
         <div>
+            <input 
+           type="text" 
+           name="newMember" 
+           value = {newMember}
+           onChange = {handleChanges}
+           />
+           <button 
+                onClick = {()=>{
+                dispatch({type: ADD_MEMBER, payload: newMember})
+                setNewMember('')
+           }}>Add Teamate</button>
            {
                state.members.map((member, index)=>{
                    return(
+                       <>
                        <div className = 'member'>
                            <span id={index}>
                                <h3>{member}</h3>
@@ -32,19 +46,14 @@ function Members() {
                                 />
                            </span>
                        </div>
+                       <MembersCard
+                        member={member}
+                       />
+                       </>
                    )
                })
            }
-           <input 
-           type="text" 
-           name="newMember" 
-           value = {newMember}
-           onChange = {handleChanges}
-           />
-           <button onClick = {()=>{
-               dispatch({type: ADD_MEMBER, payload: newMember})
-               setNewMember('')
-           }}> add new member</button>
+
         </div>
     )
 }

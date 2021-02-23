@@ -4,7 +4,11 @@ export const ADD_MEMBER = "ADD_MEMBER"
 export const RMV_MEMBER = "RMV_MEMBER"
 
 export const initialState = {
-    members: [ `Charlie Zo`, `Ming Ping`, `Jing Peng`]
+    members: [ 
+        'Zhou Ming',
+        'Ashley To',
+        'Carlos Lee'
+    ]
 }
 
 export const membersReducer = (state = initialState, action)=>{

@@ -28,6 +28,7 @@ input {
   border-bottom: 1px solid #fff;
 }
 button {
+  cursor: pointer;
   height: 50px;
   border-radius: 3px;
   color: #fff;
